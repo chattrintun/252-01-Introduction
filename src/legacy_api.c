@@ -28,8 +28,20 @@ void legacy_make_slug(const char *name, char *out) {
        - replace spaces with '_'
        - copy other characters as-is
     */
-    for (i = 0; name[i] != '\0'; i++) {
-        out[i] = name[i];
+    for (i = 0; name[i] != '\0'; i++) { // run by each charter and move by 1
+        if (name[i] == ' ')  // check if theres space
+        {
+            out[i] = '_'; // return _
+        }
+        else if (isalpha(name[i]) ) // isalpha is check if its character
+        {
+            out[i] = tolower(name[i]); // return lowercase
+        }
+        else
+        {
+            out[i] = name[i]; // reutnr normal
+        }
+        
     }
     out[i] = '\0';
 }
